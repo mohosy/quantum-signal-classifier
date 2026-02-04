@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quantum Signal Classifier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <header>
+          <p class="eyebrow">Machine Learning Playground</p>
+          <h1>Quantum Signal Classifier</h1>
+          <p class="subtitle">
+            Build a labeled dataset, train logistic regression in-browser, and inspect live decision boundaries.
+          </p>
+        </header>
+
+        <div class="control-grid">
+          <div class="control-card">
+            <h2>Label Mode</h2>
+            <div class="segmented">
+              <button id="classZeroBtn" class="active">Class 0</button>
+              <button id="classOneBtn">Class 1</button>
+            </div>
+          </div>
+
+          <div class="control-card">
+            <h2>Training</h2>
+            <label>
+              Learning Rate
+              <input id="learningRate" type="range" min="0.02" max="0.8" step="0.02" value="0.16" />
+              <span id="learningRateValue">0.16</span>
+            </label>
+            <label>
+              Epochs / Step
+              <input id="epochsPerStep" type="range" min="10" max="500" step="10" value="120" />
+              <span id="epochsPerStepValue">120</span>
+            </label>
+          </div>
+
+          <div class="control-card">
+            <h2>Actions</h2>
+            <div class="action-row">
+              <button id="trainBtn">Train Step</button>
+              <button id="autoBtn">Start Auto-Train</button>
+            </div>
+            <div class="action-row">
+              <button id="seedBtn">Generate Dataset</button>
+              <button id="resetBtn">Reset</button>
+            </div>
+          </div>
+
+          <div class="control-card stats-card">
+            <h2>Model Stats</h2>
+            <p>Points: <strong id="pointCount">0</strong></p>
+            <p>Loss: <strong id="lossValue">n/a</strong></p>
+            <p>Accuracy: <strong id="accuracyValue">n/a</strong></p>
+            <p>Iterations: <strong id="iterationValue">0</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="canvas-wrap">
+        <canvas id="playground" width="940" height="560"></canvas>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
